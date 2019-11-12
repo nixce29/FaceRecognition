@@ -28,7 +28,7 @@ def label_for_training_data(directory):
                 continue
             faces_rect,gray_img=faceDetection(test_img)
             if len(faces_rect)!=1:
-                continue #Since we are assuming only single person images are being fed to classifier
+                continue 
             (x,y,w,h)=faces_rect[0]
             roi_gray=gray_img[y:y+w,x:x+h]
             faces.append(roi_gray)
@@ -45,4 +45,4 @@ def darw_rect(test_img,face):
     cv2.rectangle(test_img,(x,y),(x+w,y+h),(255,0,0),thickness=5)
 
 def put_text(test_img,text,x,y):
-    cv2.putText(test_img,text,(x,y),cv2.FONT_HERSHEY_DUPLEX,5,(255,0,0),6)
+    cv2.putText(test_img,text,(x,y),cv2.FONT_HERSHEY_DUPLEX,3,(255,0,0),6)
